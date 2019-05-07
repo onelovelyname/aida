@@ -1,0 +1,108 @@
+doctype html
+html
+  head
+    title=title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    link(rel='stylesheet', href='stylesheets/main.css')
+    noscript
+      link(rel='stylesheet', href='assets/css/noscript.css')
+  body.is-preload
+    // Header
+    include mixins/header.pug
+    +header(headerClass)
+
+    block content
+
+    // Contact
+    section#contact.wrapper.split
+      .inner
+        section
+          h2 Send us a message
+          form(method='post', action='#')
+            .row.gtr-uniform
+              .col-6.col-12-large.col-6-medium.col-12-xsmall
+                label(for='name') Name
+                input#name(type='text', name='name')
+              .col-6.col-12-large.col-6-medium.col-12-xsmall
+                label(for='email') Email
+                input#email(type='email', name='email')
+              .col-12
+                label(for='message') Message
+                textarea#message(name='message', rows='5')
+              .col-12
+                ul.actions
+                  li
+                    input.primary(type='submit', value='Send Message')
+                  li
+                    input(type='reset', value='Reset')
+        section
+          h2 Other ways to reach us
+          ul.bulleted-icons
+            li
+              span.icon-wrapper
+                span.icon.fa-envelope
+              h3 Email
+              p
+                a(href='#') hello@aidacollective.com
+            li
+              span.icon-wrapper
+                span.icon.fa-twitter
+              h3 Twitter
+              p
+                a(href='#') twitter.com/untitled-tld
+            li
+              span.icon-wrapper
+                span.icon.fa-phone
+              h3 Phone
+              p (800) 555-0000
+            li
+              span.icon-wrapper
+                span.icon.fa-facebook
+              h3 Facebook
+              p
+                a(href='#') facebook.com/untitled-tld
+            li
+              span.icon-wrapper
+                span.icon.fa-home
+              h3 Mailing Address
+              p
+                | 1234 Fictional Avenue
+                br
+                | Nashville, TN 00000
+                br
+                | United States
+            li
+              span.icon-wrapper
+                span.icon.fa-linkedin
+              h3 LinkedIn
+              p
+                a(href='#') linkedin.com/untitled-tld
+
+    // Footer
+    footer#footer
+      .inner
+        p.copyright © 2019 Aida Collective. All rights reserved.
+        ul.menu
+          li
+            a(href='#')
+              | Terms
+              span  of Use
+          li
+            a(href='#')
+              | Privacy
+              span  Policy
+          li
+            a(href='#')
+              | Legal
+              span  Information
+
+
+    // Scripts
+    script(src='javascripts/jquery.min.js')
+    script(src='javascripts/jquery.dropotron.min.js')
+    script(src='javascripts/jquery.scrollex.min.js')
+    script(src='javascripts/browser.min.js')
+    script(src='javascripts/breakpoints.min.js')
+    script(src='javascripts/util.js')
+    script(src='javascripts/main.js')

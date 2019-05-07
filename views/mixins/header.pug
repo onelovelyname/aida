@@ -1,0 +1,24 @@
+// Header
+
+mixin header(className)
+  header(
+    class= className
+    id="header"
+  )
+    h1
+      a(href='/') AIDA COLLECTIVE
+    nav#nav
+      ul
+        li
+          a(href='/') Home
+        li
+          a.submenu.fa-angle-down(href='#') Our Projects
+          ul
+            li
+              a(href='education') Trade Skills Education
+            li
+              a(href='resiliency') Resiliency and Healing
+            li
+              a(href='mindfulness') Mindfulness
+        li
+          a.button(href='contact') Contact Us
