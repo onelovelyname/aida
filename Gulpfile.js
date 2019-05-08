@@ -11,12 +11,13 @@ gulp.task('default', function() {
     gulp.task('css');
     gulp.task('minify-css');
     gulp.task('compress');
+    gulp.task('fonts');
   });
 });
 
 gulp.task('css', function() {
   return gulp.src('./public/src/stylesheets/*.css')
-    .pipe(purify(['./public/src/javascripts/*.js', './views/*.pug', './views/**/*.pug']))
+    .pipe(purify(['./public/src/javascripts/*.js', './views/*.pug', './views/**/*.pug', './public/src/stylesheets/*.js']))
     .pipe(cleanCSS())
     .pipe(gulp.dest('./public/dist/stylesheets'));
 });
@@ -28,3 +29,8 @@ gulp.task('compress', function () {
     gulp.dest('public/dist/javascripts')
   );
 });
+
+gulp.task('fonts', function() {
+  return gulp.src('node_modules/@fortawesome/fontawesome-free/webfonts/*')
+    .pipe(gulp.dest('public/dist/fonts'))
+})
