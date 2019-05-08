@@ -4,14 +4,14 @@ let uglify = require('gulp-uglify');
 var purify = require('gulp-purifycss');
 let pipeline = require('readable-stream').pipeline;
 
-//We create a 'default' task that will run when we run `gulp` in the project
 gulp.task('default', function() {
-// We use `gulp.watch` for Gulp to expect changes in the files to run again
-  gulp.watch('./public/stylesheets/*.css', function(evt) {
+  gulp.watch('./public/src/**/*.css', function(evt) {
     gulp.task('css');
     gulp.task('minify-css');
+  });
+  gulp.watch('./public/src/**/*.js', function(evt) {
+    gulp.task('css');
     gulp.task('compress');
-    gulp.task('fonts');
   });
 });
 
@@ -29,8 +29,3 @@ gulp.task('compress', function () {
     gulp.dest('public/dist/javascripts')
   );
 });
-
-gulp.task('fonts', function() {
-  return gulp.src('node_modules/@fortawesome/fontawesome-free/webfonts/*')
-    .pipe(gulp.dest('public/dist/fonts'))
-})
