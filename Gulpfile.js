@@ -3,6 +3,7 @@ let cleanCSS = require('gulp-clean-css');
 let uglify = require('gulp-uglify');
 var purify = require('gulp-purifycss');
 let pipeline = require('readable-stream').pipeline;
+var brotli = require('gulp-brotli');
 
 gulp.task('default', function() {
   gulp.watch('./public/src/**/*.css', function(evt) {
@@ -23,9 +24,8 @@ gulp.task('css', function() {
 });
 
 gulp.task('compress', function () {
-  return pipeline(
-    gulp.src('public/src/javascripts/*.js'),
-    uglify(),
-    gulp.dest('public/dist/javascripts')
-  );
+  return gulp.src('public/src/javascripts/*.js')
+    .pipe(uglify())
+    .pipe(brotli.compress())
+    .pipe(gulp.dest('public/dist/javascripts'));
 });
