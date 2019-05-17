@@ -4,6 +4,8 @@ let uglify = require('gulp-uglify');
 var purify = require('gulp-purifycss');
 let pipeline = require('readable-stream').pipeline;
 var brotli = require('gulp-brotli');
+var gzip = require('gulp-gzip');
+
 
 gulp.task('default', function() {
   gulp.watch('./public/src/**/*.css', function(evt) {
@@ -26,6 +28,7 @@ gulp.task('css', function() {
 gulp.task('compress', function () {
   return gulp.src('public/src/javascripts/*.js')
     .pipe(uglify())
-    .pipe(brotli.compress())
+    .pipe(gzip())
+    //.pipe(brotli.compress())
     .pipe(gulp.dest('public/dist/javascripts'));
 });
